@@ -1,0 +1,55 @@
+.landingPageContainer{
+  width: 100vw;
+  height: 100vh;
+  background: url('../public/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+.landingPageContainer nav{
+  padding: 1.2rem;
+  padding-block: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landingPageContainer nav h2{
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+.navList{
+  display: flex;
+  gap: 1.5rem;
+  font-weight: 200;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.landingMainContainer{
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 5rem;
+  height: 80vh;
+  align-items: center;
+}
+
+.landingMainContainer #connect {
+  font-size: 2rem;
+}
+.landingMainContainer .mobile-image{
+  height: 50vh;
+  width: auto;
+}
+
+.landingMainContainer #connect #get-started a{
+  background-color: #FF9839;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  border-radius: 14px;
+  padding: 8px;
+  margin-top: 1.4rem;
+}
+.landingMainContainer #connect #get-started{
+  margin-top: 1rem;
+}
