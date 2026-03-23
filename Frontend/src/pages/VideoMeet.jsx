@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import "../styles/VideoMeet.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import io from "socket.io-client"; 
 
-const serverUrl = "http://localhost:8000";
+const serverUrl = "http://localhost:5000";
 
 let connections = {};
 
@@ -118,12 +119,16 @@ function VideoMeet() {
     if(video !==undefined && audio!== undefined){
       getUserMedia();
     }
-  },[audio , video])
+  },[audio , video]);
+
+  let connectToSocketServer = ()=>{
+    socketRef.current = io.connect(serverUrl , {secure : false});
+  }
 
   let getMedia =()=>{
     setVideo(videoAvailable);
     setAudio(audioAvailable);
-    connectToSocket();
+    connectToSocketServer();
   }
   useEffect(() => {
     getPermissions();
@@ -152,7 +157,7 @@ function VideoMeet() {
             <video ref={localVideoRef} muted autoPlay></video>
           </div>
         </div>
-      ) : console.log({askForUserName})(
+      ) :  (
         <></>
       )}
     </div>
