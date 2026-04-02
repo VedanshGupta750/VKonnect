@@ -1,33 +1,119 @@
-.meetVideoContainer{
+/* Main container */
+.meetVideoContainer {
     position: relative;
     height: 100vh;
-    background-color:#0B3C5D;
-}
-.meetUserVideo{
-position: absolute;
-bottom: 10vh;
-height: 20vh;
-width: auto;
-right: 0;
-border-radius: 20px;
-}
-.buttonContainer{
-    position: absolute;
-    width: 100vw;
-    bottom: 0;
-    text-align: center;
-}
-.buttonContainer svg{
-    font-size: 3rem;
-}
-.conferenceView{
-    display:flex;
-    padding: 20px;
+    background: linear-gradient(135deg, #0B3C5D, #1e1e2f);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
-.conferenceView video{
-    width: 40vw;
-    height: 20vw;
-    min-width: 30vw;
+/* Glass effect base */
+.glass {
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Local user video (small floating) */
+.meetUserVideo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    height: 22vh;
+    width: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    z-index: 10;
+
+    /* glass border effect */
+    border: 2px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* Button container */
+.buttonContainer {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    z-index: 20;
+}
+
+/* Buttons (glass style) */
+.buttonContainer button {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buttonContainer button:hover {
+    transform: scale(1.15);
+    background: rgba(255,255,255,0.2);
+}
+
+.buttonContainer svg {
+    font-size: 2.2rem;
+}
+
+/* Conference grid */
+.conferenceView {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 30px;
+}
+
+/* Each video container */
+.videoCard {
+    position: relative;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+/* Remote videos */
+.conferenceView video {
+    width: 30vw;
+    height: 18vw;
+    min-width: 260px;
+    object-fit: cover;
+    border-radius: 20px;
+
+    /* glass effect */
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.conferenceView video:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* Username overlay */
+.videoCard h2 {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    font-size: 0.9rem;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    padding: 5px 10px;
+    border-radius: 10px;
+
+}
+
+/* Smooth animations */
+* {
+    transition: all 0.3s ease;
 }
