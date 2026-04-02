@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import withAuth from '../utils/Auth';
 
-export default function HomeComponent() {
+function HomeComponent() {
   return (
     <div>HomeComponent</div>
   )
 }
+
+export default withAuth(HomeComponent);
