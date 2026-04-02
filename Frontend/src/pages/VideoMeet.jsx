@@ -13,6 +13,7 @@ import ScreenShareIcon from "@mui/icons-material/ScreenShare";
 import ScreenShareStopIcon from "@mui/icons-material/StopScreenShare";
 import ChatIcon from "@mui/icons-material/Chat";
 import Badge from "@mui/material/Badge";
+import { useNavigate } from "react-router-dom";
 
 const serverUrl = "http://localhost:5000";
 
@@ -50,7 +51,7 @@ function VideoMeet() {
   let [screenAvailable, setScreenAvailable] = useState();
 
   // for popup
-  let [showModal, setShowModal] = useState(true);
+  let [showModal, setShowModal] = useState(false);
 
   // for checking is screenShare available
   let [screen, setScreen] = useState(false);
@@ -236,7 +237,15 @@ function VideoMeet() {
     }
   };
 
-  let addMessage = () => {};
+  let addMessage = (data , sender , socketIdSender) => {
+    setMessages((prevMessage)=>[
+      ...prevMessage,
+      {sender: sender , data:data} 
+    ]);
+    if(socketIdSender != socketIDRef.current){
+      setNewMessage((prevMessage)=> prevMessage+1);
+    }
+  };
 
   let connectToSocketServer = () => {
     socketRef.current = io.connect(serverUrl, { secure: false });
@@ -449,7 +458,19 @@ function VideoMeet() {
   };
 
   let sendMessage = () =>{
-    
+    socketRef.current.emit("chat-message" , message , username);
+    setMessage("");
+  }
+
+  let routeTo = useNavigate();
+  let handleCall = ()=>{
+    try{
+      let tracks = localVideoRef.current.srcObject.getTracks();
+      tracks.forEach(track => track.stop());
+    }catch(e){
+      console.log(e);
+    }
+    routeTo('/');
   }
 
   return (
@@ -470,10 +491,20 @@ function VideoMeet() {
       ) : (
         <div  className={styles.meetVideoContainer}>
           { showModal ? <div className={styles.chatRoom}>
-            <div className="chatContainer">
+            <div className={styles.chatContainer}>
               <h1>Chat</h1>
+              <div className={styles.chattingDisplay}>
+                { messages.length > 0 ?  messages.map((item , index)=>{
+                  return(
+                    <div style={{marginBottom: "20px"}} key={index}>
+                      <p style={{fontWeight:"bold"}}>{item.sender}</p>
+                      <p>{item.data}</p>
+                    </div>
+                  )
+                }): <p>No messages yet</p>}
+              </div>
               <div className={styles.chattingArea}>
-                <TextField id="outlined-basic" label="Enter your Chat" variant="outlined" />
+                <TextField value={message} onChange={(e) =>setMessage(e.target.value)} id="outlined-basic" label="Enter your Chat" variant="outlined" />
                 <Button variant="contained" onClick={sendMessage}>Send</Button>
               </div>
               
@@ -484,7 +515,7 @@ function VideoMeet() {
               {video == true ? <VideocamIcon /> : <VideocamOffIcon />}
             </IconButton>
             <IconButton style={{ color: "red" }}>
-              <CallEndIcon />
+              <CallEndIcon onClick={handleCall  }/>
             </IconButton>
             <IconButton onClick={handleAudio} style={{ color: "white" }}>
               {audio == true ? <MicIcon /> : <MicOffIcon />}
@@ -492,7 +523,7 @@ function VideoMeet() {
 
             {screenAvailable == true ? (
               <IconButton onClick={handleScreen} style={{ color: "white" }}>
-                {screen == true ? <ScreenShareIcon /> : <ScreenShareStopIcon />}
+                {screen == true ? <ScreenShareStopIcon /> : <ScreenShareIcon />}
               </IconButton>
             ) : (
               <></>
