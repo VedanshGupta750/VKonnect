@@ -50,7 +50,7 @@ function VideoMeet() {
   let [screenAvailable, setScreenAvailable] = useState();
 
   // for popup
-  let [showModel, setShowModel] = useState();
+  let [showModal, setShowModal] = useState(true);
 
   // for checking is screenShare available
   let [screen, setScreen] = useState(false);
@@ -434,18 +434,6 @@ function VideoMeet() {
     );
   };
 
-  let getDisplayMedia = () => {
-    if (screen) {
-      if (navigator.mediaDevices.getDisplayMedia) {
-        navigator.mediaDevices
-          .getDisplayMedia({ video: true, audio: true })
-          .then(getDisplayMediaSuccess)
-          .then((stream) => {})
-          .catch((err) => console.log(err));
-      }
-    }
-  };
-
   let handleScreen = () => {
     if (!screen) {
       navigator.mediaDevices
@@ -459,6 +447,10 @@ function VideoMeet() {
 
     setScreen(!screen);
   };
+
+  let sendMessage = () =>{
+    
+  }
 
   return (
     <div>
@@ -476,7 +468,17 @@ function VideoMeet() {
           <video ref={localVideoRef} muted autoPlay></video>
         </div>
       ) : (
-        <div className={styles.meetVideoContainer}>
+        <div  className={styles.meetVideoContainer}>
+          { showModal ? <div className={styles.chatRoom}>
+            <div className="chatContainer">
+              <h1>Chat</h1>
+              <div className={styles.chattingArea}>
+                <TextField id="outlined-basic" label="Enter your Chat" variant="outlined" />
+                <Button variant="contained" onClick={sendMessage}>Send</Button>
+              </div>
+              
+            </div>
+          </div> : <> </>}
           <div className={styles.buttonContainer}>
             <IconButton onClick={handleVideo} style={{ color: "white" }}>
               {video == true ? <VideocamIcon /> : <VideocamOffIcon />}
@@ -496,7 +498,7 @@ function VideoMeet() {
               <></>
             )}
             <Badge badgeContent={newMessage} max={999} color="secondary">
-              <IconButton style={{ color: "white" }}>
+              <IconButton onClick={()=> setShowModal(!showModal)} style={{ color: "white" }}>
                 <ChatIcon />
               </IconButton>
             </Badge>
