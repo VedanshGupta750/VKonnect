@@ -3,6 +3,7 @@
     height: 100vh;
     background-color:#0B3C5D;
 }
+
 .meetUserVideo{
 position: absolute;
 bottom: 10vh;
@@ -11,15 +12,18 @@ width: auto;
 left: 0;
 border-radius: 20px;
 }
+
 .buttonContainer{
     position: absolute;
     width: 100vw;
     bottom: 0;
     text-align: center;
 }
+
 .buttonContainer svg{
     font-size: 3rem;
 }
+
 .conferenceView{
     display:flex;
     padding: 20px;
@@ -31,6 +35,7 @@ border-radius: 20px;
     min-width: 30vw;
     border-radius: 20px;
 }
+
 .chatRoom{
     position: absolute;
     right: 0;
@@ -41,24 +46,25 @@ border-radius: 20px;
     bottom: 10vh;
     padding-inline: 20px;
 }
+
 .chatContainer{
     position: relative;
     height: 100%;
 }
+
 .chattingArea {
     position: absolute;
-    bottom: 20px; /* move slightly above bottom */
+    bottom: 20px;
     padding: auto;
 }
+
 /* ===== Lobby Container ===== */
 .lobbyContainer {
   height: 100vh;
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   background: linear-gradient(135deg, #eef2f7, #dbe7f5);
 }
 
@@ -67,16 +73,12 @@ border-radius: 20px;
   background: white;
   padding: 35px 30px;
   border-radius: 16px;
-
   width: 380px;
   max-width: 92%;
-
   display: flex;
   flex-direction: column;
   align-items: stretch; 
-
   gap: 16px; 
-
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -118,4 +120,90 @@ border-radius: 20px;
   .lobbyCard video {
     height: 180px;
   }
+}
+
+
+/* ================= MOBILE DEVICES (up to 600px) ================= */
+@media (max-width: 600px) {
+
+    .conferenceView {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .conferenceView > video {
+        width: 90vw;
+        height: 50vw;
+    }
+
+    .chatRoom {
+        width: 100vw;
+        height: 60vh;
+        bottom: 0;
+        border-radius: 0;
+        padding-inline: 10px;
+    }
+
+    .meetUserVideo {
+        height: 15vh;
+        bottom: 65vh;
+    }
+
+    .buttonContainer svg {
+        font-size: 2.2rem;
+    }
+
+    .lobbyCard {
+        width: 95%;
+    }
+}
+
+
+/* ================= TABLETS (601px - 900px) ================= */
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .conferenceView {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .conferenceView > video {
+        width: 70vw;
+        height: 40vw;
+    }
+
+    .chatRoom {
+        width: 40vw;
+        height: 80vh;
+    }
+
+    .meetUserVideo {
+        height: 18vh;
+    }
+
+    .buttonContainer svg {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* ================= SMALL LAPTOPS (901px - 1200px) ================= */
+@media (min-width: 901px) and (max-width: 1200px) {
+
+    .conferenceView > video {
+        width: 45vw;
+        height: 25vw;
+    }
+
+    .chatRoom {
+        width: 30vw;
+    }
+}
+
+
+/* ================= LARGE SCREENS (1201px and above) ================= */
+@media (min-width: 1201px) {
+    /* original layout preserved */
 }

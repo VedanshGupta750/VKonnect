@@ -108,17 +108,84 @@ button:hover {
   color: white !important;
 }
 
-/* ===== Responsive ===== */
+/* ===== MOBILE DEVICES (up to 600px) ===== */
 @media (max-width: 600px) {
+
+  .navBar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 16px;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .navBar h2 {
+    font-size: 18px;
+  }
+
+  .navBar > div:last-child {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .meetContainer {
+    padding: 15px;
+    height: auto;
+  }
+
   .leftPanel {
     padding: 25px;
+    width: 100%;
   }
 
   .inputRow {
     flex-direction: column;
+    gap: 10px;
   }
 
   .inputRow button {
     width: 100%;
   }
+}
+
+
+/* ===== TABLETS (601px - 900px) ===== */
+@media (min-width: 601px) and (max-width: 900px) {
+
+  .navBar {
+    padding: 12px 20px;
+  }
+
+  .navBar h2 {
+    font-size: 20px;
+  }
+
+  .leftPanel {
+    width: 80%;
+    padding: 30px;
+  }
+
+  .meetContainer {
+    padding: 20px;
+  }
+}
+
+
+/* ===== SMALL LAPTOPS (901px - 1200px) ===== */
+@media (min-width: 901px) and (max-width: 1200px) {
+
+  .leftPanel {
+    width: 400px;
+  }
+
+  .navBar {
+    padding: 14px 24px;
+  }
+}
+
+
+/* ===== LARGE SCREENS (1201px and above) ===== */
+@media (min-width: 1201px) {
+  /* Original design preserved */
 }
