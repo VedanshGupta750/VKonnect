@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import withAuth from "../utils/Auth";
 import { useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
@@ -6,13 +6,22 @@ import RestoreIcon from "@mui/icons-material/Restore";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import styles from "../styles/homeComponent.module.css";
+import { useAuth } from "../context/AuthContext.jsx";
 
 function HomeComponent() {
   const navigate = useNavigate();
   const [meetingCode, setMeetingCode] = useState("");
 
-  const handleJoinVideoCall = () => {
+  const {addToUserHistory} = useAuth();
+
+  const handleJoinVideoCall = async() => {
     if (!meetingCode.trim()) return;
+    const response = await addToUserHistory(meetingCode)
+    if (response?.success) {
+      console.log("Added to history");
+    } else {
+      console.log("Not added:", response?.message);
+    }
     navigate(`/${meetingCode}`);
   };
 
@@ -61,9 +70,10 @@ function HomeComponent() {
 
             <Button
               variant="outlined"
-              onClick={() => {
+              onClick={async () => {
                 const code = Math.random().toString(36).substring(2, 8);
                 navigate(`/${code}`);
+              await addToUserHistory(code);
               }}
             >
               New Meeting
