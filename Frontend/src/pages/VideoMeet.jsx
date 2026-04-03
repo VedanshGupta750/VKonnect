@@ -476,18 +476,23 @@ function VideoMeet() {
   return (
     <div>
       {askForUserName === true ? (
-        <div>
-          <h2>Enter into Lobby</h2>
+  <div className={styles.lobbyContainer}>
+  <div className={styles.lobbyCard}>
+    <h2>Enter into Lobby</h2>
 
-          <TextField
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+    <TextField
+      placeholder="Enter your name"
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+    />
 
-          <Button onClick={connect}>connect</Button>
+    <Button variant="contained" onClick={connect}>
+      Connect
+    </Button>
 
-          <video ref={localVideoRef} muted autoPlay></video>
-        </div>
+    <video ref={localVideoRef} muted autoPlay></video>
+  </div>
+</div>
       ) : (
         <div  className={styles.meetVideoContainer}>
           { showModal ? <div className={styles.chatRoom}>
