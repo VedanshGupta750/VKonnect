@@ -34,7 +34,9 @@ function HomeComponent() {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <IconButton>
+          <IconButton onClick={()=>{
+            navigate("/history")
+          }}>
             <RestoreIcon />
             <span style={{ color: "white", fontSize: "14px" }}>History</span>
           </IconButton>
@@ -43,7 +45,7 @@ function HomeComponent() {
             variant=""
             onClick={() => {
               localStorage.removeItem("token");
-              navigate("/auth");
+              navigate("/");
             }}
           >
             Logout
