@@ -510,7 +510,7 @@ function VideoMeet() {
               </div>
               <div className={styles.chattingArea}>
                 <TextField value={message} onChange={(e) =>setMessage(e.target.value)} id="outlined-basic" label="Enter your Chat" variant="outlined" />
-                <Button variant="contained" onClick={sendMessage}>Send</Button>
+                <Button variant="contained" onClick={sendMessage} style={{margin: "1rem"}}>Send</Button>
               </div>
               
             </div>
@@ -528,7 +528,7 @@ function VideoMeet() {
 
             {screenAvailable == true ? (
               <IconButton onClick={handleScreen} style={{ color: "white" }}>
-                {screen == true ? <ScreenShareStopIcon /> : <ScreenShareIcon />}
+                {screen == true ? <ScreenShareIcon /> : <ScreenShareStopIcon />}
               </IconButton>
             ) : (
               <></>
