@@ -17,7 +17,9 @@ export default function LandingPage() {
                 <p onClick={()=>{
                     routeTo('/auth');
                 }}>Register</p>
-                <div role='button'>Login</div>
+                <div role='button' onClick={()=>{
+                    routeTo('/auth');
+                }}>Login</div>
             </div>
         </nav>
 
