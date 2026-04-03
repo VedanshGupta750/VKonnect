@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Snackbar from "@mui/material/Snackbar";
-
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 
 const defaultTheme = createTheme();
@@ -25,6 +25,7 @@ export default function Authentication() {
   let [formState, setFormstate] = React.useState(0);
   let [open, setOpen] = React.useState(false);
 
+  const navigate = useNavigate();
   let handleAuth = async () => {
     try {
       setError("");
@@ -38,7 +39,7 @@ export default function Authentication() {
         setError("");
         setUserName("");
         setPassword("");
-        setFormstate(1);
+        navigate("/home");
       }
        if (formState === 1) {
         let result = await handleRegister(name, userName, password);
