@@ -14,9 +14,8 @@ import ScreenShareStopIcon from "@mui/icons-material/StopScreenShare";
 import ChatIcon from "@mui/icons-material/Chat";
 import Badge from "@mui/material/Badge";
 import { useNavigate } from "react-router-dom";
-import server from '../environment.js'
 
-const serverUrl = server;
+const serverUrl = "http://localhost:5000";
 
 let connections = {};
 
