@@ -12,7 +12,9 @@ export default function LandingPage() {
             </div>
             <div className='navList'>
                 <p onClick={()=>{
-                    routeTo('/a2d4e');
+                   const route =Math.random().toString(36).substring(2, 8);
+                    routeTo(`/${route}`);
+
                 }}>Join as Guest</p>
                 <p onClick={()=>{
                     routeTo('/auth');
