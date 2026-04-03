@@ -16,7 +16,7 @@ export default function LandingPage() {
 
         <div className="landingMainContainer">
         <div id='connect'>
-            <h1><span style={{color:'#FF9839'}}>Connect</span> with your Loved Ones</h1>
+            <h2><span style={{color:'#FF9839'}}>Connect</span> & Bringing hearts closer, one call at a time.</h2>
             <p>Cover Distance by VKonnect</p>
             <div id="get-started">
                 <a href='/auth'>Get started</a>
