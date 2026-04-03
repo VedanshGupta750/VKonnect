@@ -1,0 +1,81 @@
+/* ===== History Container ===== */
+.historyContainer {
+  min-height: calc(100vh - 70px);
+  padding: 30px;
+
+  background: linear-gradient(135deg, #eef2f7, #dbe7f5);
+}
+
+/* ===== Header ===== */
+.historyHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Match navbar icon style */
+.historyHeader .MuiIconButton-root {
+  color: #1a73e8 !important;
+}
+
+/* ===== Grid Layout ===== */
+.historyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* ===== Card (same as leftPanel) ===== */
+.historyCard {
+  background: white !important;
+  border-radius: 16px !important;
+
+  padding: 20px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+  transition: all 0.3s ease;
+}
+
+/* Same hover effect as leftPanel */
+.historyCard:hover {
+  transform: translateY(-4px);
+}
+
+/* ===== Typography ===== */
+.meetingCode {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #2d2d2d !important;
+}
+
+.meetingDate {
+  font-size: 14px !important;
+  color: #555 !important;
+  margin-top: 8px !important;
+}
+
+/* ===== Empty State ===== */
+.noData {
+  text-align: center;
+  margin-top: 50px;
+
+  font-size: 18px;
+  color: #666;
+}
+/* ===== Home Button Styling ===== */
+.homeButton {
+  background: white !important;
+  color: #1a73e8 !important;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.homeButton:hover {
+  background: #1a73e8 !important;
+  color: white !important;
+  transform: scale(1.1);
+}

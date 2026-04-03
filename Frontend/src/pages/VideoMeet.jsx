@@ -470,7 +470,7 @@ function VideoMeet() {
     }catch(e){
       console.log(e);
     }
-    routeTo('/');
+    routeTo('/home');
   }
 
   return (

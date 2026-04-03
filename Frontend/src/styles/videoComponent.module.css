@@ -45,9 +45,10 @@ border-radius: 20px;
     position: relative;
     height: 100%;
 }
-.chattingArea{
+.chattingArea {
     position: absolute;
-    bottom: 0;
+    bottom: 20px; /* move slightly above bottom */
+    padding: auto;
 }
 /* ===== Lobby Container ===== */
 .lobbyContainer {

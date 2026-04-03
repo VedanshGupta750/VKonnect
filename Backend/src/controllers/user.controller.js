@@ -71,12 +71,12 @@ const login = async (req, res) => {
 };  
 
 const getUserHistory =async (req ,res)=>{
-  const {token} = res.query;
+  const {token} = req.query;
   try{
     const user = await User.findOne({
       token: token
     })
-    const meetings = await Meeting.findOne({
+    const meetings = await Meeting.find({
       user_id: user.username
     })
     res.json(meetings);
