@@ -6,7 +6,7 @@ import server from '../environment.js';
 const AuthContext = createContext({});
 
 const client = axios.create({
-  baseURL: "https://vkonnect-1.onrender.com", 
+  baseURL: `${server}/api/v1/users`,
 });
 
 export const AuthProvider =({children})=>{

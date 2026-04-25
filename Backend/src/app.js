@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import { createServer } from "node:http";
 import { Server } from "socket.io";
@@ -21,9 +22,7 @@ app.use(express.urlencoded({limit: "40kb" , extended:true}))
 app.use('/api/v1/users', userRoutes);
 const start = async () => {
   const connectionWithDB = await mongoose
-    .connect(
-      "REDACTED_MONGODB_URI",
-    )
+    .connect(process.env.MONGODB_URI)
     console.log(`Connection to DB Successfull Host is ${connectionWithDB.connection.host}`)
   server.listen(port, () => {
     console.log("Server is running on http://localhost:5000");
