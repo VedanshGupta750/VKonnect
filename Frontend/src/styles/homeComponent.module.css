@@ -35,12 +35,13 @@
   align-items: center;
 
   background: linear-gradient(135deg, #eef2f7, #dbe7f5);
+  padding: 20px;
 }
 
 /* ===== Card ===== */
 .leftPanel {
   width: 450px;
-  max-width: 90%;
+  max-width: 100%;
 
   background: white;
   padding: 40px;
@@ -90,6 +91,7 @@
   height: 56px;
   padding: 0 18px;
   border-radius: 8px;
+  white-space: nowrap;
 }
 
 /* ===== Button Enhancements ===== */
@@ -108,10 +110,21 @@ button:hover {
   color: white !important;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 600px) {
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .navBar {
+    padding: 12px 20px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .navBar h2 {
+    font-size: 20px;
+  }
+
   .leftPanel {
-    padding: 25px;
+    padding: 30px 25px;
   }
 
   .inputRow {
@@ -120,5 +133,29 @@ button:hover {
 
   .inputRow button {
     width: 100%;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .navBar {
+    padding: 10px 14px;
+  }
+
+  .navBar h2 {
+    font-size: 18px;
+  }
+
+  .navBar > div:last-child {
+    gap: 6px;
+  }
+
+  .leftPanel {
+    padding: 25px 18px;
+  }
+
+  .leftPanel h2 {
+    font-size: 17px;
+    margin-bottom: 18px;
   }
 }

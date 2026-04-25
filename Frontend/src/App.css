@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  overflow-x: hidden;
 }
 .landingPageContainer nav{
   padding: 1.2rem;
@@ -35,21 +36,76 @@
 
 .landingMainContainer #connect {
   font-size: 2rem;
+  max-width: 600px;
 }
 .landingMainContainer .mobile-image{
   height: 50vh;
   width: auto;
 }
+.landingMainContainer .mobile-image img{
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
 
-.landingMainContainer #connect #get-started a{
+.landingMainContainer #connect #get-started{
   background-color: #FF9839;
   text-decoration: none;
   font-weight: 600;
   color: white;
   border-radius: 14px;
-  padding: 8px;
-  margin-top: 1.4rem;
-}
-.landingMainContainer #connect #get-started{
+  padding: 10px 20px;
   margin-top: 1.5rem;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .landingMainContainer {
+    flex-direction: column;
+    padding-inline: 2rem;
+    height: auto;
+    text-align: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .landingMainContainer #connect {
+    font-size: 1.4rem;
+    max-width: 100%;
+  }
+
+  .landingMainContainer .mobile-image {
+    height: 35vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .landingPageContainer nav {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-block: 1rem;
+  }
+
+  .navList {
+    gap: 1rem;
+    font-size: 1rem;
+  }
+
+  .landingMainContainer {
+    padding-inline: 1rem;
+  }
+
+  .landingMainContainer #connect {
+    font-size: 1.1rem;
+  }
+
+  .landingMainContainer #connect h2 {
+    font-size: 1.3rem;
+  }
+
+  .landingMainContainer .mobile-image {
+    height: 28vh;
+  }
 }

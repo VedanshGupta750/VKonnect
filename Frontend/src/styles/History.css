@@ -1,6 +1,6 @@
 /* ===== History Container ===== */
 .historyContainer {
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
   padding: 30px;
 
   background: linear-gradient(135deg, #eef2f7, #dbe7f5);
@@ -21,11 +21,11 @@
 /* ===== Grid Layout ===== */
 .historyGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
 
-/* ===== Card (same as leftPanel) ===== */
+/* ===== Card ===== */
 .historyCard {
   background: white !important;
   border-radius: 16px !important;
@@ -37,7 +37,7 @@
   transition: all 0.3s ease;
 }
 
-/* Same hover effect as leftPanel */
+/* Same hover effect */
 .historyCard:hover {
   transform: translateY(-4px);
 }
@@ -47,6 +47,7 @@
   font-size: 18px !important;
   font-weight: 600 !important;
   color: #2d2d2d !important;
+  word-break: break-all;
 }
 
 .meetingDate {
@@ -63,6 +64,7 @@
   font-size: 18px;
   color: #666;
 }
+
 /* ===== Home Button Styling ===== */
 .homeButton {
   background: white !important;
@@ -78,4 +80,36 @@
   background: #1a73e8 !important;
   color: white !important;
   transform: scale(1.1);
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .historyContainer {
+    padding: 20px;
+  }
+
+  .historyGrid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .historyContainer {
+    padding: 15px;
+  }
+
+  .historyGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .historyCard {
+    padding: 16px;
+  }
+
+  .meetingCode {
+    font-size: 16px !important;
+  }
 }

@@ -29,8 +29,8 @@ export default function LandingPage() {
         <div id='connect'>
             <h2><span style={{color:'#FF9839'}}>Connect</span> & Bringing hearts closer, one call at a time.</h2>
             <p>Cover Distance by VKonnect</p>
-            <div id="get-started">
-                <a href='/auth'>Get started</a>
+            <div id="get-started" role='button' onClick={()=> routeTo('/auth')}>
+                Get started
             </div>
         </div>
         <div className='mobile-image'>
